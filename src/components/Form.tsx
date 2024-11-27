@@ -36,8 +36,6 @@ const Form: React.FC = () => {
     confirmPassword: "",
   });
 
-  const [isFormValid, setIsFormValid] = useState(false);
-
   const validateInput = (name: string, value: string): string => {
     switch (name) {
       case "firstName":
@@ -77,8 +75,6 @@ const Form: React.FC = () => {
 
     const errorMessage = validateInput(name, value);
     setErrors((prev) => ({ ...prev, [name]: errorMessage }));
-
-    setIsFormValid(Object.values(errors).every((error) => !error));
   };
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
@@ -92,7 +88,7 @@ const Form: React.FC = () => {
 
     if (Object.keys(formErrors).length > 0) {
       setErrors(formErrors);
-      setIsFormValid(false);
+
       return;
     }
     setForm({
@@ -102,7 +98,6 @@ const Form: React.FC = () => {
       password: "",
       confirmPassword: "",
     });
-    setIsFormValid(true);
     console.log("Form Submitted Successfully! \n", form);
     Swal.fire({
       title: "Form Submitted!",
