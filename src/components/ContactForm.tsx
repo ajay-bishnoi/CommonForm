@@ -20,7 +20,6 @@ const ContactForm: React.FC = () => {
     setValue,
     formState: { errors },
   } = useForm<FormData>();
-
   const [submittedData, setSubmittedData] = React.useState<FormData[]>([]);
   const [updateData, setUpdateData] = React.useState<number | null>(null);
 
@@ -74,10 +73,6 @@ const ContactForm: React.FC = () => {
                 placeholder="Enter First Name"
                 {...register("firstName", {
                   required: "First name is required.",
-                  minLength: {
-                    value: 2,
-                    message: "First name must be at least 2 characters.",
-                  },
                 })}
                 className={errors.firstName ? "border-red-500" : ""}
               />
@@ -96,10 +91,6 @@ const ContactForm: React.FC = () => {
                 placeholder="Enter Last Name"
                 {...register("lastName", {
                   required: "Last name is required.",
-                  minLength: {
-                    value: 2,
-                    message: "Last name must be at least 2 characters.",
-                  },
                 })}
                 className={errors.lastName ? "border-red-500" : ""}
               />
