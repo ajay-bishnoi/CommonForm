@@ -41,7 +41,7 @@ const ContactForm: React.FC = () => {
   const onSubmit = (data: FormData) => {
     console.log("Form Submitted Successfully! \n", data);
     Swal.fire({
-      title: updateData ? "Data Updated!" : "Form Submitted!",
+      title: updateData !== null ? "Data Updated!" : "Form Submitted!",
       text: "Thank you for your submission.",
       icon: "success",
       confirmButtonText: "Close",
